@@ -1,0 +1,61 @@
+// =============================================================================
+// FOOTER
+// =============================================================================
+
+@use 'variables' as vars;
+@use 'mixins' as mx;
+
+.site-footer {
+  background-color: vars.$navy-light;
+  border-top: 1px solid vars.$gray-700;
+  padding: vars.$space-5 0 vars.$space-4;
+  margin-top: vars.$space-6;
+
+  &__grid {
+    @include mx.grid-auto(250px, vars.$space-4);
+    margin-bottom: vars.$space-4;
+  }
+
+  &__brand {
+    h3 {
+      font-family: vars.$font-display;
+      color: vars.$white;
+      margin-bottom: vars.$space-1;
+      span { color: vars.$orange; }
+    }
+    p {
+      color: vars.$gray-400;
+      font-size: vars.$fs-sm;
+      max-width: 300px;
+    }
+  }
+
+  &__links {
+    h4 {
+      font-family: vars.$font-display;
+      color: vars.$white;
+      font-size: vars.$fs-lg;
+      margin-bottom: vars.$space-2;
+    }
+    ul {
+      list-style: none;
+      li {
+        margin-bottom: vars.$space-1;
+        a {
+          color: vars.$gray-400;
+          text-decoration: none;
+          transition: color vars.$transition-fast;
+          &:hover { color: vars.$orange; }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid vars.$gray-700;
+    padding-top: vars.$space-3;
+    text-align: center;
+    color: vars.$gray-400;
+    font-size: vars.$fs-sm;
+  }
+}

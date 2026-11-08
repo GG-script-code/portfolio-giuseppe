@@ -1,0 +1,48 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+  background-color: rgba(10, 31, 61, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #2D3748;
+}
+
+.navbar-brand {
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #FFFFFF;
+}
+.navbar-brand span {
+  color: #FF7A00;
+}
+
+.nav-link {
+  color: #F5F7FA;
+  font-weight: 500;
+  transition: color 150ms ease-in-out;
+}
+.nav-link:hover, .nav-link.active {
+  color: #FF7A00;
+}
+
+.btn-nav-cta {
+  background-color: #6C4AB6;
+  color: #FFFFFF;
+  border: 2px solid transparent;
+  transition: all 250ms ease-in-out;
+  cursor: pointer;
+}
+.btn-nav-cta:hover, .btn-nav-cta:focus-visible {
+  background-color: #FF7A00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.btn-nav-cta:active {
+  transform: translateY(0);
+}
+.btn-nav-cta {
+  border-radius: 9999px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+}/*# sourceMappingURL=header.css.map */

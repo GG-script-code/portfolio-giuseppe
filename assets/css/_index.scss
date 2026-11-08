@@ -1,0 +1,13 @@
+// =============================================================================
+// BARREL FILE — Espone tutti i moduli del design system
+// =============================================================================
+// Uso: @use 'index' as ds; → ds.$navy, ds.respond-to('md'), ...
+//      @use 'index' as *;   → $navy, respond-to('md'), ...
+// =============================================================================
+
+@forward 'variables';
+@forward 'mixins';
+@forward 'base';
+@forward 'header';
+@forward 'footer';
+@forward 'sections';

@@ -1,0 +1,403 @@
+// =============================================================================
+// SECTIONS — Hero, Trust, Servizi, Case Studies, CTA
+// =============================================================================
+
+@use 'variables' as vars;
+@use 'mixins' as mx;
+
+// -----------------------------------------------------------------------------
+// UTILITY DI SEZIONE
+// -----------------------------------------------------------------------------
+.section {
+  padding: vars.$space-6 0;
+  
+  &--alt {
+    background-color: vars.$navy-light;
+  }
+
+  &__title {
+    font-family: vars.$font-display;
+    font-size: vars.$fs-3xl;
+    color: vars.$white;
+    text-align: center;
+    margin-bottom: vars.$space-2;
+    
+    span { color: vars.$orange; }
+  }
+
+  &__subtitle {
+    text-align: center;
+    color: vars.$gray-400;
+    max-width: 650px;
+    margin: 0 auto vars.$space-5;
+    font-size: vars.$fs-lg;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// HERO SECTION
+// -----------------------------------------------------------------------------
+.hero {
+  min-height: calc(100vh - vars.$navbar-height);
+  @include mx.flex-center;
+  text-align: center;
+  padding: vars.$space-5 vars.$space-3;
+  background: radial-gradient(circle at center, vars.$navy-light 0%, vars.$navy 100%);
+
+  &__avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid vars.$violet;
+    box-shadow: vars.$shadow-glow-violet;
+    margin-bottom: vars.$space-4;
+    transition: transform vars.$transition-base;
+    
+    &:hover { transform: scale(1.05); }
+  }
+
+  &__title {
+    font-size: vars.$fs-5xl;
+    font-family: vars.$font-display;
+    font-weight: vars.$fw-bold;
+    color: vars.$white;
+    line-height: vars.$lh-tight;
+    margin-bottom: vars.$space-2;
+
+    @include mx.respond-to('md') { font-size: calc(vars.$fs-5xl * 1.3); }
+    .highlight { color: vars.$orange; }
+  }
+
+  &__subtitle {
+    font-size: vars.$fs-lg;
+    color: vars.$gray-400;
+    max-width: 750px;
+    margin: 0 auto vars.$space-4;
+    line-height: vars.$lh-loose;
+  }
+
+  &__cta {
+    @include mx.button-variant(vars.$orange, vars.$white, vars.$violet);
+    padding: vars.$space-2 vars.$space-4;
+    border-radius: vars.$radius-full;
+    font-weight: vars.$fw-semibold;
+    font-size: vars.$fs-lg;
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// TRUST ELEMENTS
+// -----------------------------------------------------------------------------
+.trust-bar {
+  background-color: vars.$navy-light;
+  border-bottom: 1px solid vars.$gray-700;
+  padding: vars.$space-4 0;
+
+  &__grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: vars.$space-3;
+  }
+
+  &__item {
+    text-align: center;
+    .number {
+      display: block;
+      font-family: vars.$font-display;
+      font-size: vars.$fs-3xl;
+      font-weight: vars.$fw-bold;
+      color: vars.$orange;
+      line-height: 1;
+      margin-bottom: vars.$space-1;
+    }
+    .label {
+      font-size: vars.$fs-sm;
+      color: vars.$gray-400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// SERVIZI / COMPETENZE
+// -----------------------------------------------------------------------------
+.services-grid {
+  @include mx.grid-auto(280px, vars.$space-4);
+  
+  .service-card {
+    @include mx.card-dark(vars.$violet);
+    text-align: center;
+    padding: vars.$space-4;
+
+    &__icon { font-size: vars.$fs-4xl; margin-bottom: vars.$space-2; color: vars.$violet; }
+    &__title { font-family: vars.$font-display; font-size: vars.$fs-xl; color: vars.$white; margin-bottom: vars.$space-1; }
+    &__text { color: vars.$gray-400; font-size: vars.$fs-sm; line-height: vars.$lh-normal; }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// PROGETTI (Card Semplice Home)
+// -----------------------------------------------------------------------------
+.projects-grid {
+  @include mx.grid-auto(350px, vars.$space-4);
+
+  .project-card {
+    @include mx.card-dark(vars.$orange);
+    display: flex;
+    flex-direction: column;
+
+    &__header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: vars.$space-2; }
+    &__title { font-family: vars.$font-display; font-size: vars.$fs-xl; color: vars.$white; line-height: 1.2; }
+    &__tech {
+      font-size: vars.$fs-xs;
+      color: vars.$orange;
+      font-weight: vars.$fw-semibold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background: rgba(vars.$orange, 0.1);
+      padding: 4px 8px;
+      border-radius: vars.$radius-sm;
+      white-space: nowrap;
+    }
+    &__text { color: vars.$gray-400; font-size: vars.$fs-sm; line-height: vars.$lh-normal; margin-bottom: vars.$space-3; flex-grow: 1; }
+    &__link {
+      color: vars.$orange;
+      font-weight: vars.$fw-semibold;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: vars.$space-1;
+      transition: gap vars.$transition-fast;
+      &:hover { color: vars.$violet; gap: vars.$space-2; }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CASE STUDIES (Layout a Riquadri)
+// -----------------------------------------------------------------------------
+.case-study {
+  // Sfondo leggermente diverso per far risaltare il contenitore principale
+  background-color: rgba(10, 31, 61, 0.6); 
+  border: 1px solid vars.$gray-700;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-5;
+  margin-bottom: vars.$space-6;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid vars.$gray-700;
+    padding-bottom: vars.$space-3;
+    margin-bottom: vars.$space-4;
+    
+    h3 {
+      color: vars.$white;
+      font-family: vars.$font-display;
+      font-size: vars.$fs-2xl;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: vars.$space-2;
+    }
+    
+    .tech-badge {
+      background-color: vars.$violet;
+      color: vars.$white;
+      padding: 6px 12px;
+      border-radius: vars.$radius-md;
+      font-size: vars.$fs-xs;
+      font-weight: vars.$fw-bold;
+      text-transform: uppercase;
+    }
+  }
+
+  // Il contenitore che affianca Sfida e Architettura
+  &__body {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: vars.$space-4;
+    margin-bottom: vars.$space-4;
+
+    @include mx.respond-to('md') {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    // I sotto-riquadri (Sfida e Architettura)
+    .case-box {
+      background-color: vars.$navy-light; // Sfondo più chiaro per staccare
+      border-radius: vars.$radius-md;
+      padding: vars.$space-4;
+      border-left: 3px solid vars.$violet; // Bordino colorato
+
+      h4 {
+        color: vars.$white;
+        font-family: vars.$font-display;
+        font-size: vars.$fs-lg;
+        margin-bottom: vars.$space-2;
+      }
+      p {
+        color: vars.$gray-400;
+        font-size: vars.$fs-sm;
+        line-height: vars.$lh-normal;
+        margin: 0;
+      }
+    }
+  }
+
+  // Il riquadro del risultato (in basso, a tutta larghezza)
+  &__result-box {
+    background-color: rgba(56, 161, 105, 0.1); // Sfondo verde scuro trasparente
+    border: 1px solid rgba(56, 161, 105, 0.3);
+    border-left: 3px solid vars.$success; // Bordo verde
+    border-radius: vars.$radius-md;
+    padding: vars.$space-3 vars.$space-4;
+
+    h4 {
+      color: vars.$success; // Titolo verde
+      font-family: vars.$font-display;
+      font-size: vars.$fs-lg;
+      margin-bottom: vars.$space-1;
+    }
+    p {
+      color: vars.$white; // Testo bianco per contrasto
+      margin: 0;
+      font-size: vars.$fs-sm;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// LEARNING / MASTER
+// -----------------------------------------------------------------------------
+.learning-section {
+  text-align: center;
+  background: linear-gradient(135deg, rgba(vars.$violet, 0.05) 0%, rgba(vars.$navy, 1) 100%);
+  border-top: 1px solid vars.$violet;
+  border-bottom: 1px solid vars.$violet;
+  padding: vars.$space-6 0;
+  
+  .badge-learning {
+    display: inline-block;
+    padding: vars.$space-1 vars.$space-3;
+    background-color: rgba(vars.$orange, 0.1);
+    color: vars.$orange;
+    border: 1px solid vars.$orange;
+    border-radius: vars.$radius-full;
+    font-weight: vars.$fw-semibold;
+    margin-bottom: vars.$space-3;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CTA FINALE
+// -----------------------------------------------------------------------------
+.cta-section {
+  background: linear-gradient(135deg, rgba(vars.$violet, 0.1) 0%, rgba(vars.$orange, 0.1) 100%);
+  border: 1px solid vars.$violet;
+  border-radius: vars.$radius-lg;
+  padding: vars.$space-6 vars.$space-4;
+  text-align: center;
+  margin: vars.$space-6 0;
+
+  h2 { font-family: vars.$font-display; font-size: vars.$fs-3xl; color: vars.$white; margin-bottom: vars.$space-2; }
+  p { color: vars.$gray-400; margin-bottom: vars.$space-4; font-size: vars.$fs-lg; }
+  .btn-cta {
+    @include mx.button-variant(vars.$orange, vars.$white, vars.$violet);
+    padding: vars.$space-2 vars.$space-5;
+    border-radius: vars.$radius-full;
+    font-weight: vars.$fw-bold;
+    font-size: vars.$fs-lg;
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// PAGINE INTERNE
+// -----------------------------------------------------------------------------
+.page-header {
+  padding: vars.$space-6 0 vars.$space-4;
+  text-align: center;
+  background: linear-gradient(180deg, vars.$navy-light 0%, vars.$navy 100%);
+  border-bottom: 1px solid vars.$gray-700;
+
+  h1 { font-size: vars.$fs-4xl; color: vars.$white; span { color: vars.$orange; } }
+  p { color: vars.$gray-400; font-size: vars.$fs-lg; max-width: 600px; margin: vars.$space-2 auto 0; }
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: vars.$space-4 0;
+
+  &::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background-color: vars.$gray-700; }
+
+  &__item {
+    position: relative;
+    width: 50%;
+    padding: vars.$space-3 vars.$space-4;
+    margin-bottom: vars.$space-3;
+
+    &--left {
+      left: 0;
+      text-align: right;
+      &::after { content: ''; position: absolute; right: -8px; top: 24px; width: 16px; height: 16px; border-radius: 50%; background-color: vars.$violet; border: 3px solid vars.$navy; }
+    }
+
+    &--right {
+      left: 50%;
+      text-align: left;
+      &::after { content: ''; position: absolute; left: -8px; top: 24px; width: 16px; height: 16px; border-radius: 50%; background-color: vars.$orange; border: 3px solid vars.$navy; }
+    }
+
+    h3 { font-family: vars.$font-display; color: vars.$white; font-size: vars.$fs-lg; margin-bottom: vars.$space-1; }
+    p { color: vars.$gray-400; font-size: vars.$fs-sm; line-height: vars.$lh-normal; }
+  }
+
+  @include mx.respond-until('md') {
+    &::before { left: 20px; }
+    &__item {
+      width: 100%; padding-left: 50px; text-align: left !important;
+      &--left, &--right { left: 0; &::after { left: 12px; right: auto; } }
+    }
+  }
+}
+
+.cv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: vars.$space-3;
+
+  th, td { padding: vars.$space-2; text-align: left; border-bottom: 1px solid vars.$gray-700; }
+  th { background-color: vars.$navy-light; color: vars.$white; font-family: vars.$font-display; }
+  td { color: vars.$gray-100; }
+  tr:hover { background-color: rgba(vars.$violet, 0.1); }
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: vars.$navy-light;
+  padding: vars.$space-5;
+  border-radius: vars.$radius-lg;
+  border: 1px solid vars.$violet;
+
+  .form-group { margin-bottom: vars.$space-3; }
+  label { display: block; margin-bottom: vars.$space-1; color: vars.$white; font-weight: vars.$fw-medium; }
+  input, textarea {
+    width: 100%; padding: vars.$space-2; background-color: vars.$navy; border: 1px solid vars.$gray-700; border-radius: vars.$radius-md; color: vars.$white; font-family: vars.$font-body;
+    &:focus { outline: none; border-color: vars.$orange; box-shadow: 0 0 0 3px rgba(vars.$orange, 0.2); }
+  }
+  .btn-submit {
+    @include mx.button-variant(vars.$orange, vars.$white, vars.$violet);
+    width: 100%; padding: vars.$space-2; border-radius: vars.$radius-md; font-weight: vars.$fw-bold; font-size: vars.$fs-lg;
+  }
+}

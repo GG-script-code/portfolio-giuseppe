@@ -1,0 +1,72 @@
+// =============================================================================
+// BASE — Reset + tipografia + body
+// =============================================================================
+
+@use 'variables' as vars;
+@use 'mixins' as mx;
+
+// Reset minimale + box-sizing globale
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: vars.$navy;
+  color: vars.$gray-100;
+  font-family: vars.$font-body;
+  font-size: vars.$fs-base;
+  line-height: vars.$lh-normal;
+  min-height: 100vh;
+}
+
+// Tipografia
+h1, h2, h3, h4, h5, h6 {
+  font-family: vars.$font-display;
+  font-weight: vars.$fw-bold;
+  line-height: vars.$lh-tight;
+  color: vars.$white;
+}
+
+h1 { font-size: vars.$fs-4xl; }
+h2 { font-size: vars.$fs-3xl; }
+h3 { font-size: vars.$fs-2xl; }
+
+a {
+  color: vars.$orange;
+  text-decoration: none;
+  transition: color vars.$transition-fast;
+
+  &:hover { color: vars.$violet; }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Focus visibile per accessibilità
+:focus-visible {
+  @include mx.focus-ring;
+}
+
+// Container custom
+.container {
+  width: 100%;
+  max-width: vars.$container-max;
+  margin-inline: auto;
+  padding-inline: vars.$space-3;
+}
+
+// Utility
+.visually-hidden { @include mx.visually-hidden; }

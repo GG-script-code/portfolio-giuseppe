@@ -1,0 +1,43 @@
+// =============================================================================
+// HEADER — Navbar sticky + menu mobile
+// =============================================================================
+
+@use 'variables' as vars;
+@use 'mixins' as mx;
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: vars.$z-sticky;
+  background-color: rgba(vars.$navy, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid vars.$gray-700;
+}
+
+.navbar-brand {
+  font-family: vars.$font-display;
+  font-weight: vars.$fw-bold;
+  font-size: vars.$fs-xl;
+  color: vars.$white;
+
+  span { color: vars.$orange; }
+}
+
+.nav-link {
+  color: vars.$gray-100;
+  font-weight: vars.$fw-medium;
+  transition: color vars.$transition-fast;
+
+  &:hover,
+  &.active {
+    color: vars.$orange;
+  }
+}
+
+// CTA nel menu
+.btn-nav-cta {
+  @include mx.button-variant(vars.$violet, vars.$white, vars.$orange);
+  border-radius: vars.$radius-full;
+  padding: vars.$space-1 vars.$space-3;
+  font-weight: vars.$fw-semibold;
+}

@@ -1,0 +1,162 @@
+// =============================================================================
+// MIXINS — Giuseppe Portfolio
+// =============================================================================
+// Helper riutilizzabili. Dipende da 'variables'.
+// Uso: @use 'mixins' as mx; → @include mx.respond-to('md') { ... }
+// =============================================================================
+
+@use 'sass:map';
+@use 'variables' as vars;
+
+// -----------------------------------------------------------------------------
+// RESPONSIVE — Media query mobile-first
+// -----------------------------------------------------------------------------
+/// Applica uno stile a partire da un breakpoint (mobile-first).
+/// @param {String} $bp - Nome breakpoint ('sm', 'md', 'lg', 'xl', 'xxl')
+/// @example
+///   @include respond-to('md') { font-size: 1.25rem; }
+@mixin respond-to($bp) {
+  @if not map.has-key(vars.$breakpoints, $bp) {
+    @error "Breakpoint '#{$bp}' non valido. Usa uno tra: #{map.keys(vars.$breakpoints)}.";
+  }
+  @media (min-width: map.get(vars.$breakpoints, $bp)) {
+    @content;
+  }
+}
+
+/// Applica uno stile FINO a un breakpoint (desktop-first).
+/// @param {String} $bp - Nome breakpoint
+@mixin respond-until($bp) {
+  @if not map.has-key(vars.$breakpoints, $bp) {
+    @error "Breakpoint '#{$bp}' non valido. Usa uno tra: #{map.keys(vars.$breakpoints)}.";
+  }
+  @media (max-width: (map.get(vars.$breakpoints, $bp) - 0.02px)) {
+    @content;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// FLEXBOX HELPERS
+// -----------------------------------------------------------------------------
+/// Centra un elemento con Flexbox (assi entrambi).
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/// Flexbox con direzione e allineamento configurabili.
+/// @param {String} $dir  - row | column
+/// @param {String} $just - justify-content
+/// @param {String} $align - align-items
+@mixin flex($dir: row, $just: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
+
+// -----------------------------------------------------------------------------
+// GRID HELPERS
+// -----------------------------------------------------------------------------
+/// Griglia responsive auto-fit con larghezza minima delle colonne.
+/// @param {Length} $min - Larghezza minima per colonna (default: 280px)
+/// @param {Length} $gap - Gap tra le colonne (default: 1.5rem)
+@mixin grid-auto($min: 280px, $gap: vars.$space-3) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min, 1fr));
+  gap: $gap;
+}
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY
+// -----------------------------------------------------------------------------
+/// Tronca il testo con ellissi su N righe.
+/// @param {Number} $lines - Numero massimo di righe
+@mixin line-clamp($lines: 2) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/// Applica uno stile tipografico coerente.
+/// @param {Length} $size - Dimensione font
+/// @param {Number} $weight - Peso (400/500/600/700)
+/// @param {Number} $lh - Line-height
+@mixin text-style($size: vars.$fs-base, $weight: vars.$fw-regular, $lh: vars.$lh-normal) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lh;
+}
+
+// -----------------------------------------------------------------------------
+// BUTTONS
+// -----------------------------------------------------------------------------
+/// Bottone con colori di brand e stato hover/focus.
+/// @param {Color} $bg     - Sfondo base
+/// @param {Color} $color  - Testo
+/// @param {Color} $hover  - Sfondo su hover
+@mixin button-variant($bg, $color, $hover) {
+  background-color: $bg;
+  color: $color;
+  border: 2px solid transparent;
+  transition: all vars.$transition-base;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $hover;
+    transform: translateY(-2px);
+    box-shadow: vars.$shadow-md;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// CARDS
+// -----------------------------------------------------------------------------
+/// Card scura con bordo sottile e hover glow.
+/// @param {Color} $border-color - Colore bordo (default: $violet)
+@mixin card-dark($border-color: vars.$violet) {
+  background-color: vars.$navy-light;
+  border: 1px solid rgba($border-color, 0.25);
+  border-radius: vars.$radius-md;
+  padding: vars.$space-4;
+  transition: all vars.$transition-base;
+
+  &:hover {
+    border-color: $border-color;
+    box-shadow: 0 0 24px rgba($border-color, 0.25);
+    transform: translateY(-4px);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// VISIBILITY
+// -----------------------------------------------------------------------------
+/// Nasconde visivamente ma mantiene accessibile agli screen reader.
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+// -----------------------------------------------------------------------------
+// FOCUS RING (accessibilità)
+// -----------------------------------------------------------------------------
+/// Anello di focus visibile per navigazione da tastiera.
+/// @param {Color} $color - Colore anello
+@mixin focus-ring($color: vars.$orange) {
+  outline: 2px solid $color;
+  outline-offset: 3px;
+}

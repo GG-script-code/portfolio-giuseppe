@@ -1,0 +1,120 @@
+// =============================================================================
+// DESIGN TOKENS — Giuseppe Portfolio
+// =============================================================================
+// Tutte le variabili globali del progetto.
+// Uso: @use 'variables' as vars; → vars.$navy
+//      @use 'variables' as *;   → $navy (sconsigliato in enterprise)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// COLORS — Brand
+// -----------------------------------------------------------------------------
+$navy:        #0A1F3D !default; // Sfondo principale (dark base)
+$navy-light:  #12294D !default; // Sfondo alternato per sezioni
+$violet:      #6C4AB6 !default; // Accento primario (AI, creatività)
+$orange:      #FF7A00 !default; // Accento secondario (CTA, highlight)
+
+// -----------------------------------------------------------------------------
+// COLORS — Neutrals
+// -----------------------------------------------------------------------------
+$white:       #FFFFFF !default;
+$gray-100:    #F5F7FA !default; // Testo primario su dark
+$gray-400:    #A0AEC0 !default; // Testo secondario / muted
+$gray-700:    #2D3748 !default; // Bordi, divisori
+
+// -----------------------------------------------------------------------------
+// COLORS — Semantic
+// -----------------------------------------------------------------------------
+$success:     #38A169 !default;
+$warning:     #D69E2E !default;
+$error:       #E53E3E !default;
+$info:        #3182CE !default;
+
+// -----------------------------------------------------------------------------
+// TYPOGRAPHY
+// -----------------------------------------------------------------------------
+$font-display: 'Poppins', system-ui, -apple-system, sans-serif !default;
+$font-body:    'Inter', system-ui, -apple-system, sans-serif !default;
+
+// Scala tipografica (fluid, basata su clamp)
+$fs-xs:   0.75rem  !default; // 12px
+$fs-sm:   0.875rem !default; // 14px
+$fs-base: 1rem     !default; // 16px
+$fs-lg:   1.125rem !default; // 18px
+$fs-xl:   1.25rem  !default; // 20px
+$fs-2xl:  1.5rem   !default; // 24px
+$fs-3xl:  2rem     !default; // 32px
+$fs-4xl:  2.5rem   !default; // 40px
+$fs-5xl:  3rem     !default; // 48px
+
+// Pesi
+$fw-regular:  400 !default;
+$fw-medium:   500 !default;
+$fw-semibold: 600 !default;
+$fw-bold:     700 !default;
+
+// Interlinea
+$lh-tight:  1.2 !default;
+$lh-normal: 1.6 !default;
+$lh-loose:  1.8 !default;
+
+// -----------------------------------------------------------------------------
+// SPACING — Scala 8px
+// -----------------------------------------------------------------------------
+$space-0:  0       !default;
+$space-1:  0.5rem  !default; // 8px
+$space-2:  1rem    !default; // 16px
+$space-3:  1.5rem  !default; // 24px
+$space-4:  2rem    !default; // 32px
+$space-5:  3rem    !default; // 48px
+$space-6:  4rem    !default; // 64px
+$space-7:  6rem    !default; // 96px
+$space-8:  8rem    !default; // 128px
+
+// -----------------------------------------------------------------------------
+// BREAKPOINTS — Map (per uso con mixin)
+// -----------------------------------------------------------------------------
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  'xxl': 1400px
+) !default;
+
+// -----------------------------------------------------------------------------
+// RADII & SHADOWS
+// -----------------------------------------------------------------------------
+$radius-sm:   4px  !default;
+$radius-md:   8px  !default;
+$radius-lg:   16px !default;
+$radius-full: 9999px !default;
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3) !default;
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4) !default;
+$shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5) !default;
+$shadow-glow-violet: 0 0 24px rgba(108, 74, 182, 0.45) !default;
+$shadow-glow-orange: 0 0 24px rgba(255, 122, 0, 0.35) !default;
+
+// -----------------------------------------------------------------------------
+// TRANSITIONS
+// -----------------------------------------------------------------------------
+$transition-fast:   150ms ease-in-out !default;
+$transition-base:   250ms ease-in-out !default;
+$transition-slow:   400ms ease-in-out !default;
+
+// -----------------------------------------------------------------------------
+// Z-INDEX SCALE (evita conflitti)
+// -----------------------------------------------------------------------------
+$z-base:     1    !default;
+$z-dropdown: 1000 !default;
+$z-sticky:   1020 !default;
+$z-fixed:    1030 !default;
+$z-modal:    1050 !default;
+$z-tooltip:  1070 !default;
+
+// -----------------------------------------------------------------------------
+// LAYOUT
+// -----------------------------------------------------------------------------
+$container-max: 1200px !default;
+$navbar-height: 72px   !default;

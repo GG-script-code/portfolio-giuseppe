@@ -1,0 +1,46 @@
+# ==========================================
+# SYSTEM FILES
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# EDITOR / IDE
+# ==========================================
+.vscode/
+.idea/
+*.sublime-workspace
+
+# ==========================================
+# SASS / CSS BUILD ARTIFACTS
+# ==========================================
+# Nota: NON ignoriamo style.css perché GitHub Pages 
+# ne ha bisogno per mostrare il sito. 
+# Ma ignoriamo i file di supporto del compilatore.
+.sass-cache/
+*.css.map
+
+# ==========================================
+# NODE.JS / NPM (se in futuro userai tool)
+# ==========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ==========================================
+# ENVIRONMENT & SECRETS
+# ==========================================
+# Mai caricare file con password o API key
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# ==========================================
+# OS / TEMP
+# ==========================================
+*.log
+.cache/

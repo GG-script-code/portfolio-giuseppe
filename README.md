@@ -1,6 +1,6 @@
 # 🚀 Portfolio Personale — Giuseppe | Data Engineer & Senior Risk Manager
 
-Benvenuto nel repository del mio sito web personale e portfolio professionale. Questo progetto è stato progettato e sviluppato da zero per presentare le mie competenze nell'ambito della **Data Engineering, Risk Governance, Modellistica Quantitativa e Agentic AI**.
+Benvenuto nel repository del [mio sito web personale e portfolio professionale](https://gg-script-code.github.io/portfolio-giuseppe/). Questo progetto è stato progettato e sviluppato da zero per presentare le mie competenze nell'ambito della **Data Engineering, Risk Governance, Modellistica Quantitativa e Agentic AI**.
 
 ---
 
